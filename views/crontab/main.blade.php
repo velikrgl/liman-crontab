@@ -83,7 +83,7 @@ width: 35%;
          <a class="dropdown-item" href="#">Twice per Hour (0,30 * * * *)</a>
         <a class="dropdown-item" href="#">One per Hour (0 * * * *)</a>
   
-     
+         
   </div>
 </div>
   </div>
