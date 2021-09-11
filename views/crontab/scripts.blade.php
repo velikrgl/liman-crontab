@@ -1,12 +1,11 @@
 <script>
-    function getHostname(){
+    function createNewCrontab(){
         showSwal("{{__('Yükleniyor...')}}", 'info');
         let data = new FormData();
-        request("{{API('get_hostname')}}", data, function(response){
-            response = JSON.parse(response);
-            $('.hostname').text(response.message);
+        request("{{API('router_crontab')}}", data, function(response){
+        
             Swal.close();
-            $('#setHostnameModal').modal('hide');
+          
         }, function(response){
             response = JSON.parse(response);
             showSwal(response.message, 'error');
