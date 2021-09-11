@@ -1,7 +1,6 @@
 
 <style>
 .input-group-text{
-
 width: 150px;
 padding: 10px;
 margin-bottom: 15px;
@@ -9,153 +8,98 @@ margin-bottom: 15px;
 .form{
 margin-bottom: 15px;
 width: 35%;
+font-size: 14px;
+    font-weight: bolder;
   
 }
-.dropdown{
+.dropdown-selected-items{
   position: initial;
- display: flex;
-  width: 60%;
+    display: flex;
+    width: 53%;
+    padding: 10px;
+    margin-bottom: 30px;
+    background: beige;
+    font-weight: 600;
+}
+.dropdownItems{
+  margin-bottom: 15px;
+  width: 35%;
+  margin-left: 15px;
+  width: 35%;
 }
 
 </style>
-<div class="dropdown config" style="display: block;"> 
-<h5>Ortak Ayarlarlardan Ekle  </h5>
-  <button class="btn btn-secondary dropdown-toggle common-settings " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-  style="background-color:white; color:black;margin-bottom:15px; width:35%; "
-  >  
-  {{ __("Ortak Ayarlar") }}
-  </button>
- 
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Once Per Minute (* * * * *)</a>
-    <a class="dropdown-item" href="#">Once Per Five Minute (*/5 * * * *)</a>
-    <a class="dropdown-item" href="#">Twice per Hour (0,30 * * * *)</a>
-    <a class="dropdown-item" href="#">One per Hour (0 * * * *)</a>
-    <a class="dropdown-item" href="#">Twice per Day (0 0,12 * * *)</a>
-    <a class="dropdown-item" href="#">Once per Day (0 0 * * *)</a>
-    <a class="dropdown-item" href="#">Once per Week (0 0 * * 0)</a>
-    <a class="dropdown-item" href="#">Once per Month (0 0 1 * *)</a>
-    <a class="dropdown-item" href="#">Once per Year (0 0 1 1 *)</a>
-    
-  </div>
-</div>
+
+<select name="mainMenu" onchange="getSelectedValue1()" class="dropdown-selected-items" id="dropdown-main-first">
+<option selected disabled>--Hızlı İşlem Seç--</option>
+    <option value="1">Dakika da 1 kere (* * * * *)</option> 
+    <option value="2">Saatte 1 kere (0 * * * *)</option>
+    <option value="3">Ay da bir kere(0 0 1 * *)</option>
+    <option value="4">Hafta da bir kere (0 0 * * 0)</option>
+
+</select>
 <div class="form-group ">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="new-minute">Dakika</span>
-    <input type="text" class="form" placeholder="Kaç dakikada bir olacağını giriniz ..."  >
-    <div class="dropdown"> 
-   
-      <button class="btn btn-secondary dropdown-toggle config-dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-       style="background-color:white; color:black;margin-bottom:15px; width:35%; "
-       >  
-         {{ __("Ayar") }}
-        </button>
- 
-        </button>
-         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Once Per Minute (* * * * *)</a>
-         <a class="dropdown-item" href="#">Once Per Five Minute (*/5 * * * *)</a>
-         <a class="dropdown-item" href="#">Twice per Hour (0,30 * * * *)</a>
-        <a class="dropdown-item" href="#">One per Hour (0 * * * *)</a>
-  
-    
-  </div>
-</div>
+    <span class="input-group-text" >Dakika</span>
+    <input type="text" class="form" id="new-minute" placeholder="Kaç dakikada bir olacağını giriniz ..."  >
+    <select name="mainMenu" class="dropdownItems" onchange="getSelectedValue2()" id="dropdown-main-second">
+      <option selected disabled>--Hızlı İşlem Seç--</option>
+      <option value="1">Dakikada 1 kere (*)</option> 
+      <option value="2">5 dk da bir (*/5)</option> 
+      <option value="3">15 dk da bir (*/15)</option>
+      <option value="4">30 dk da bir (*/30)</option>
+    </select> 
   </div>
 
 
   <div class="input-group-prepend">
-    <span class="input-group-text" id="new-hour">Saat</span>
-    <input type="text" class="form" placeholder="Kaç saatte bir olacağını giriniz ..."  >
-    <div class="dropdown"> 
-      
-      <button class="btn btn-secondary dropdown-toggle config-dropdown " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-       style="background-color:white; color:black;margin-bottom:15px; width:35%; "
-       >  
-         {{ __("Ayar") }}
-        </button>
- 
-        </button>
-         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Once Per Minute (* * * * *)</a>
-         <a class="dropdown-item" href="#">Once Per Five Minute (*/5 * * * *)</a>
-         <a class="dropdown-item" href="#">Twice per Hour (0,30 * * * *)</a>
-        <a class="dropdown-item" href="#">One per Hour (0 * * * *)</a>
-  
-         
-  </div>
-</div>
-  </div>
-
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="new-Mday">Ayın Günü</span>
-    <input type="text" class="form" placeholder="Kaç günde bir olacağını giriniz ..."  >
-    <div class="dropdown"> 
+    <span class="input-group-text" >Saat</span>
+    <input type="text" class="form" id="new-hour" placeholder="Kaç saatte bir olacağını giriniz ..."  >
+    <select name="mainMenu" class="dropdownItems" onchange="getSelectedValue3()" id="dropdown-main-third">
+      <option selected disabled>--Hızlı İşlem Seç--</option>
+     <option value="1">Saatte 1 kere (*)</option> 
+      <option value="2">Her 3 saatte 1 ( */3)</option>
+      <option value="3">Her 6 saatte 1 (*/6)</option> 
+      <option value="4">Her 12 saatte 1 (*/12)</option>
      
-      <button class="btn btn-secondary dropdown-toggle config-dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-       style="background-color:white; color:black;margin-bottom:15px; width:35%; "
-       >  
-         {{ __("Ayar") }}
-        </button>
- 
-        </button>
-         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Once Per Minute (* * * * *)</a>
-         <a class="dropdown-item" href="#">Once Per Five Minute (*/5 * * * *)</a>
-         <a class="dropdown-item" href="#">Twice per Hour (0,30 * * * *)</a>
-        <a class="dropdown-item" href="#">One per Hour (0 * * * *)</a>
-  
-    
-  </div>
-</div>
+    </select> 
+
   </div>
 
   <div class="input-group-prepend">
-    <span class="input-group-text" id="new-month">Ay</span>
-    <input type="text" class="form" placeholder="Kaç ayda bir olacağını giriniz ..."  >
-    <div class="dropdown"> 
-     
-      <button class="btn btn-secondary dropdown-toggle config-dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-       style="background-color:white; color:black;margin-bottom:15px; width:35%; "
-       >  
-         {{ __("Ayar") }}
-        </button>
- 
-        </button>
-         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Once Per Minute (* * * * *)</a>
-         <a class="dropdown-item" href="#">Once Per Five Minute (*/5 * * * *)</a>
-         <a class="dropdown-item" href="#">Twice per Hour (0,30 * * * *)</a>
-        <a class="dropdown-item" href="#">One per Hour (0 * * * *)</a>
-  
-    
-  </div>
-</div>
+    <span class="input-group-text" >Ayın Günü</span>
+    <input type="text" class="form" id="new-Mday" placeholder="Kaç günde bir olacağını giriniz ..."  >
+    <select name="mainMenu" class="dropdownItems" onchange="getSelectedValue4()" id="dropdown-main-fourth">
+      <option selected disabled>--Hızlı İşlem Seç--</option>
+     <option value="1">Her Ayın 1ine (1)</option> 
+      <option value="2">Her Ayın 5ine (5)</option> 
+      <option value="3">Her Ayın 15ine (15)</option>
+      <option value="4">Her Ayın 20sine (20)</option>
+    </select> 
   </div>
 
   <div class="input-group-prepend">
-    <span class="input-group-text" id="new-Wday">Haftanın Günü</span>
-    <input type="text" class="form" placeholder="Hangi haftanın gününde bir olacağını giriniz ..."  >
-    <div class="dropdown"> 
-  
-      <button class="btn btn-secondary dropdown-toggle config-dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-       style="background-color:white; color:black;margin-bottom:15px; width:35%; "
-       >  
-         {{ __("Ayar") }}
-        </button>
- 
-        </button>
-         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Once Per Minute (* * * * *)</a>
-         <a class="dropdown-item" href="#">Once Per Five Minute (*/5 * * * *)</a>
-         <a class="dropdown-item" href="#">Twice per Hour (0,30 * * * *)</a>
-        <a class="dropdown-item" href="#">One per Hour (0 * * * *)</a>
-  
-    
+    <span class="input-group-text" >Ay</span>
+    <input type="text" class="form" id="new-month" placeholder="Kaç ayda bir olacağını giriniz ..."  >
+    <select name="mainMenu" class="dropdownItems" onchange="getSelectedValue5()" id="dropdown-main-fiveth">
+      <option selected disabled>--Hızlı İşlem Seç--</option>
+     <option value="1"> Her Ocakta Ayında (1)</option> 
+      <option value="2">Her Mart Ayında (3)</option> 
+      <option value="3">Her Haziran Ayında (6)</option>
+      <option value="4">Her Aralık Ayında(12)</option>
+    </select> 
   </div>
-</div>
-  
+
+  <div class="input-group-prepend">
+    <span class="input-group-text" >Haftanın Günü</span>
+    <input type="text" class="form"  id="new-Wday" placeholder="Hangi haftanın gününde bir olacağını giriniz ..."  >
+    <select name="mainMenu" class="dropdownItems" onchange="getSelectedValue6()" id="dropdown-main-sixth">
+      <option selected disabled>--Hızlı İşlem Seç--</option>
+     <option value="1">Her Pazar (*)</option> 
+      <option value="2">Her Pazartesi (1)</option> 
+      <option value="3">Her Çarşamba (3)</option>
+      <option value="4">Her Cuma (5)</option>
+    </select> 
   </div>
 
   <div class="input-group-prepend">
@@ -163,7 +107,9 @@ width: 35%;
     <input type="text" class="form" placeholder="Komutu giriniz ..."  >
   </div>
 
-  <button class="btn btn-primary" type="submit" id="submit-button" >  
+  <button class="btn btn-primary"  type="button" id="submit-button" 
+  style="    width: 15%;"
+  >  
   {{ __("Kaydet") }}
   </button>
 
@@ -171,4 +117,3 @@ width: 35%;
 </div>
   
 @include("crontab.scripts")
-
