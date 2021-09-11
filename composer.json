@@ -1,0 +1,23 @@
+{
+	"name": "limanmys/Crontab",
+	"description": "Crontab",
+	"type": "project",
+	"authors": [
+		{
+			"name": "Veli Karagül",
+			"email": "velikrgl@liman.dev"
+		}
+	],
+	"require": {},
+	"autoload": {
+		"files": [
+			"app/Helpers/Helpers.php"
+		],
+		"psr-4": {
+			"App\\": "app"
+		},
+		"classmap": [
+			"app"
+		]
+	}
+}
