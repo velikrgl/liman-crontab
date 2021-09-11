@@ -22,15 +22,10 @@
             document.getElementById("new-month").value=$newMonth;
             document.getElementById("new-Wday").value=$newWday;
     }
-
     function getSelectedValue1(){
-
         var term=document.getElementById("dropdown-main-first").value;      
         if(term==1 )
-        {
-            AutoFillforUser("*","*","*","*","*");
-                        
-        }
+        {AutoFillforUser("*","*","*","*","*");}
         else if(term==2)
         {
             AutoFillforUser("0","*","*","*","*");             
@@ -47,10 +42,7 @@
         }
 
     }
-
-    function getSelectedValue2(){
-
-
+ function getSelectedValue2(){
 var term2=document.getElementById("dropdown-main-second").value;
 if(term2==1)
 {
@@ -75,13 +67,7 @@ else if(term2==4)
 }
 
 function getSelectedValue3(){
-
-
-
 var term3=document.getElementById("dropdown-main-third").value;
-
-
-
 if(term3==1)
 {
     document.getElementById("new-hour").value="*";
@@ -101,17 +87,10 @@ else if(term3==4)
     document.getElementById("new-hour").value="*/12";
     
 }
-
 }
 
 function getSelectedValue4(){
-
-
-
-    var term4=document.getElementById("dropdown-main-fourth").value;
-
-
-
+var term4=document.getElementById("dropdown-main-fourth").value;
 if(term4==1)
 {
     document.getElementById("new-Mday").value="1";
@@ -135,13 +114,7 @@ else if(term4==4)
 }
 
 function getSelectedValue5(){
-
-
-
-    var term5=document.getElementById("dropdown-main-fiveth").value;
-
-
-
+var term5=document.getElementById("dropdown-main-fiveth").value;
 if(term5==1)
 {
 document.getElementById("new-month").value="1";
@@ -165,12 +138,7 @@ document.getElementById("new-month").value="12";
 }
 
 function getSelectedValue6(){
-
-
-
-    var term6=document.getElementById("dropdown-main-sixth").value;
-
-
+var term6=document.getElementById("dropdown-main-sixth").value;
 
 if(term6==1)
 {
