@@ -5,8 +5,11 @@ use Liman\Toolkit\Shell\Command;
 
 class CrontabController
 {
-	public function new()
+//echo "* * * * * echo "veli" >/dev/pts/0" >> /var/spool/cron/crontabs/$USER
+	public function CalCommand($min,$hour,$dayOfMonth,$month,$dayOfWeek,$userCommand)
 	{
 		
+		$result = Command::runSudo('');
+
 	}
 }
