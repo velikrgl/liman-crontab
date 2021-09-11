@@ -1,2 +1,2 @@
-# liman-crontab
+# Liman Crontab Eklentisi
 
