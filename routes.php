@@ -19,5 +19,8 @@ return [
     "run_script" => "RunScriptController@run",
 
     // TaskView
-    "example_task" => "TaskViewController@run"
+    "example_task" => "TaskViewController@run",
+
+    //
+    "router_crontab" => "CrontabController@new" 
 ];
