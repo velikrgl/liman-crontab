@@ -22,5 +22,5 @@ return [
     "example_task" => "TaskViewController@run",
 
     //Crontab 
-    "router_crontab" => "CrontabController@new" 
+    "router_crontab" => "CrontabController@CalCommand" 
 ];
