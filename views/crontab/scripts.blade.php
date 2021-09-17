@@ -1,20 +1,5 @@
 <script>
-    function createNewCrontab(){
-        showSwal("{{__('Yükleniyor...')}}", 'info');
-        var minValue= document.getElementById("new-minute").value;
-        let data = new FormData();
-        request("{{API('router_crontab')}}", data, function(response){
-        
-        
-        Swal.close();
-          
-        }, function(response){
-            response = JSON.parse(response);
-            showSwal(response.message, 'error');
-        });
-    }
-
-    function AutoFillforUser($newMinute,$newHour,$newMday,$newMonth,$newWday){
+   function AutoFillforUser($newMinute,$newHour,$newMday,$newMonth,$newWday){
         
             document.getElementById("new-minute").value=$newMinute;
             document.getElementById("new-hour").value=$newHour;
@@ -90,7 +75,13 @@ else if(term3==4)
 }
 
 function getSelectedValue4(){
-var term4=document.getElementById("dropdown-main-fourth").value;
+
+
+
+    var term4=document.getElementById("dropdown-main-fourth").value;
+
+
+
 if(term4==1)
 {
     document.getElementById("new-Mday").value="1";
@@ -161,4 +152,47 @@ document.getElementById("new-Wday").value="5";
 }
 
 }
+
+
+function createCrontabJobs(){
+    var newMinute=document.getElementById("new-minute").value;
+    var newHour=document.getElementById("new-hour").value;
+    var newMday=document.getElementById("new-Mday").value;
+    var newmonth=document.getElementById("new-month").value;
+    var newWday=document.getElementById("new-Wday").value;
+    var newcommand=document.getElementById("new-command").value;
+    console.log(newMinute);
+    console.log(newHour);
+    console.log(newMday);
+    console.log(newmonth);
+    console.log(newWday);
+    console.log(newcommand);
+
+
+    var form = new FormData();
+    form.append("newMinute", newMinute);
+    form.append("newHour", newHour);
+    form.append("newMday", newMday);
+    form.append("newmonth", newmonth);
+    form.append("newWday", newWday);
+    form.append("newcommand", newcommand);
+
+
+
+    request(API('router_crontab'), form, function(response) {
+    message = JSON.parse(response)["message"];
+    showSwal(message+"Başarlı şekilde oluşturuldu", 'success', 3000);
+   
+    }, function(response) {
+    let error = JSON.parse(response);
+    showSwal(error.message, 'error', 3000);
+    });
+    }
+
+
+
+
+
+
+
 </script>
