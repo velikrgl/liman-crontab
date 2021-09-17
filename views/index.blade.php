@@ -31,7 +31,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" onclick="createNewCrontab()" href="#hrefNewCrontab" data-toggle="tab">
+        <a class="nav-link"  href="#hrefNewCrontab" data-toggle="tab">
             <i class="fas fa-tasks"></i> {{ __("Yeni Oluştur") }}
         </a>
     </li>
