@@ -5,7 +5,7 @@ width: 150px;
 padding: 10px;
 margin-bottom: 15px;
 }
-.form{
+.form-crontabInput{
 margin-bottom: 15px;
 width: 35%;
 font-size: 14px;
@@ -29,19 +29,22 @@ font-size: 14px;
 }
 
 </style>
-
+<meta charset="utf-8">
+<meta name="KeyWords" content="HTML5, HTML5, HTML5, HTML5, HTML 5, editing, html5, check, type, html 4.01, 4.0, template type, type, code, responsive, responsive">
 <select name="mainMenu" onchange="getSelectedValue1()" class="dropdown-selected-items" id="dropdown-main-first">
 <option selected disabled>--Hızlı İşlem Seç--</option>
-    <option value="1">Dakika da 1 kere (* * * * *)</option> 
+    <option value="1">Dakika da 1 kere (* * * * *)</options> 
     <option value="2">Saatte 1 kere (0 * * * *)</option>
     <option value="3">Ay da bir kere(0 0 1 * *)</option>
     <option value="4">Hafta da bir kere (0 0 * * 0)</option>
 
 </select>
 <div class="form-group ">
+  <form action="">
   <div class="input-group-prepend">
+
     <span class="input-group-text" >Dakika</span>
-    <input type="text" class="form" id="new-minute" placeholder="Kaç dakikada bir olacağını giriniz ..."  >
+    <input type="text" class="form-crontabInput" id="new-minute"  placeholder="Kaç dakikada bir olacağını giriniz ..."  required >
     <select name="mainMenu" class="dropdownItems" onchange="getSelectedValue2()" id="dropdown-main-second">
       <option selected disabled>--Hızlı İşlem Seç--</option>
       <option value="1">Dakikada 1 kere (*)</option> 
@@ -54,7 +57,7 @@ font-size: 14px;
 
   <div class="input-group-prepend">
     <span class="input-group-text" >Saat</span>
-    <input type="text" class="form" id="new-hour" placeholder="Kaç saatte bir olacağını giriniz ..."  >
+    <input type="text" class="form-crontabInput" id="new-hour" placeholder="Kaç saatte bir olacağını giriniz ..."  required >
     <select name="mainMenu" class="dropdownItems" onchange="getSelectedValue3()" id="dropdown-main-third">
       <option selected disabled>--Hızlı İşlem Seç--</option>
      <option value="1">Saatte 1 kere (*)</option> 
@@ -68,7 +71,7 @@ font-size: 14px;
 
   <div class="input-group-prepend">
     <span class="input-group-text" >Ayın Günü</span>
-    <input type="text" class="form" id="new-Mday" placeholder="Kaç günde bir olacağını giriniz ..."  >
+    <input type="text" class="form-crontabInput" id="new-Mday" placeholder="Kaç günde bir olacağını giriniz ..."  required>
     <select name="mainMenu" class="dropdownItems" onchange="getSelectedValue4()" id="dropdown-main-fourth">
       <option selected disabled>--Hızlı İşlem Seç--</option>
      <option value="1">Her Ayın 1ine (1)</option> 
@@ -80,7 +83,7 @@ font-size: 14px;
 
   <div class="input-group-prepend">
     <span class="input-group-text" >Ay</span>
-    <input type="text" class="form" id="new-month" placeholder="Kaç ayda bir olacağını giriniz ..."  >
+    <input type="text" class="form-crontabInput" id="new-month" placeholder="Kaç ayda bir olacağını giriniz ..." required>
     <select name="mainMenu" class="dropdownItems" onchange="getSelectedValue5()" id="dropdown-main-fiveth">
       <option selected disabled>--Hızlı İşlem Seç--</option>
      <option value="1"> Her Ocakta Ayında (1)</option> 
@@ -92,7 +95,7 @@ font-size: 14px;
 
   <div class="input-group-prepend">
     <span class="input-group-text" >Haftanın Günü</span>
-    <input type="text" class="form"  id="new-Wday" placeholder="Hangi haftanın gününde bir olacağını giriniz ..."  >
+    <input type="text" class="form-crontabInput"  id="new-Wday" placeholder="Hangi haftanın gününde bir olacağını giriniz ..."  required>
     <select name="mainMenu" class="dropdownItems" onchange="getSelectedValue6()" id="dropdown-main-sixth">
       <option selected disabled>--Hızlı İşlem Seç--</option>
      <option value="1">Her Pazar (*)</option> 
@@ -103,17 +106,18 @@ font-size: 14px;
   </div>
 
   <div class="input-group-prepend">
-    <span class="input-group-text" id="new-command">Komut Giriniz</span>
-    <input type="text" class="form" placeholder="Komutu giriniz ..."  >
+    <span class="input-group-text" >Komut Giriniz</span>
+    <input type="text" class="form-crontabInput" id="new-command" placeholder="Komutu giriniz ..."  required>
   </div>
 
-  <button class="btn btn-primary"  type="button" id="submit-button" 
+  <button class="btn btn-primary" onclick="createCrontabJobs()" type="submit" id="submit-button" 
   style="    width: 15%;"
   >  
   {{ __("Kaydet") }}
   </button>
 
-
+  </form>
 </div>
   
 @include("crontab.scripts")
+
